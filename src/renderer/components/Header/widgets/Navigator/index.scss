@@ -1,0 +1,39 @@
+.header-navigator {
+  height: 40px;
+  -webkit-app-region: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  & .navigator-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 24px;
+    cursor: pointer;
+    color: var(--headerTextColor);
+    border: 1px solid var(--dividerColor);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.02);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.035) inset;
+    transition: opacity 120ms linear, border-color 120ms linear, box-shadow 120ms linear, transform 120ms linear;
+
+    &[data-disabled="true"] {
+      color: var(--headerTextColor);
+      opacity: 0.38;
+      cursor: default;
+    }
+
+    &:hover:not([data-disabled="true"]) {
+      border-color: rgba(0, 220, 255, 0.28);
+      box-shadow: 0 0 14px rgba(0, 220, 255, 0.08);
+      transform: translateY(-1px);
+    }
+
+    & svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}

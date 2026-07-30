@@ -1,0 +1,36 @@
+.music-bar--slider-container {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  $height: 8px;
+  top: 0;
+  height: $height;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  --slider-height: 3px;
+
+  &:hover,
+  &:active {
+    --slider-height: 4px;
+  }
+
+  & .bar {
+    width: 100%;
+    height: var(--slider-height);
+    transition: height 80ms linear;
+    background: rgba(124, 77, 255, 0.16);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.035) inset;
+  }
+
+  & .active-bar {
+    position: absolute;
+    width: 100%;
+    left: -100%;
+    height: var(--slider-height);
+    background: linear-gradient(90deg, rgba(124, 77, 255, 0.72), var(--primaryColor), #ff6ab1);
+    transform: translateX(0);
+    transition: height linear 80ms;
+    box-shadow: 0 0 10px rgba(226, 60, 141, 0.28);
+  }
+}

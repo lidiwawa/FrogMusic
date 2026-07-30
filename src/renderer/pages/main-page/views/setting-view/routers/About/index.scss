@@ -1,0 +1,28 @@
+.setting-view--about-container {
+    & .about-version {
+        display: flex;
+        align-items: center;
+        column-gap: 16px;
+    }
+
+    & .about-title {
+        margin-top: 18px;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--textColor);
+    }
+
+    & .about-description {
+        max-width: 760px;
+        line-height: 1.8;
+        color: rgba(244, 233, 255, 0.78);
+    }
+
+    & .about-credit {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+        color: rgba(244, 233, 255, 0.72);
+    }
+}

@@ -1,0 +1,100 @@
+.download-view--container {
+  & .header {
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.05rem;
+    user-select: none;
+  }
+
+  & .download-panel-toolbar {
+    min-width: 0;
+    margin: 0.8rem 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+  }
+
+  & .download-panel-summary {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    color: var(--textColor);
+
+    & span {
+      min-width: 0;
+      max-width: 42vw;
+      padding: 0.26rem 0.55rem;
+      border: 1px solid var(--dividerColor);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 0.92rem;
+    }
+
+    & span[data-type="danger"] {
+      color: var(--dangerColor, #fc5f5f);
+      border-color: rgba(252, 95, 95, 0.45);
+      background: rgba(252, 95, 95, 0.08);
+    }
+  }
+
+  & .download-panel-button {
+    flex: 0 0 auto;
+    min-height: 2.1rem;
+    padding: 0 0.72rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    border: 1px solid var(--dividerColor);
+    border-radius: 6px;
+    color: var(--textColor);
+    background: rgba(255, 255, 255, 0.06);
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+      color: var(--primaryColor);
+      border-color: var(--primaryColor);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    &:disabled {
+      cursor: default;
+      opacity: 0.45;
+    }
+
+    & svg {
+      flex: 0 0 auto;
+    }
+  }
+
+  & .download-panel-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 720px) {
+    & .download-panel-toolbar {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    & .download-panel-actions {
+      justify-content: flex-start;
+    }
+
+    & .download-panel-button {
+      width: fit-content;
+    }
+  }
+}

@@ -1,0 +1,90 @@
+.artist-view--header-container {
+    margin-top: 24px;
+    display: flex;
+    min-height: 160px;
+  
+    & img {
+      width: 160px;
+      height: 160px;
+      border-radius: 12px;
+      user-select: none;
+      -webkit-user-drag: none;
+      object-fit: cover;
+    }
+  
+    & .artist-info {
+      flex: 1;
+      padding-left: 1.2rem;
+  
+      & .title-container {
+        display: flex;
+        align-items: center;
+        -webkit-user-drag: none;
+        user-select: text;
+  
+        & .title {
+          flex: 1;
+          font-size: 1.4rem;
+          font-weight: 600;
+          margin-left: 8px;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+        }
+      }
+  
+      & .artist-meta-container {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 0.86rem;
+        opacity: 0.66;
+      }
+
+      & .artist-description-card {
+        margin-top: 18px;
+        max-width: 720px;
+        padding: 14px 16px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.045);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+      }
+
+      & .artist-description-title {
+        margin-bottom: 8px;
+        font-size: 0.92rem;
+        font-weight: 600;
+        opacity: 0.88;
+      }
+  
+      & .info-container {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        line-height: 1.8;
+  
+        & span {
+          margin-right: 24px;
+        }
+      }
+  
+      & .description-container {
+        cursor: pointer;
+        white-space: pre-line;
+
+        &[data-empty="true"] {
+          cursor: default;
+          opacity: 0.48;
+        }
+
+        &[data-fold="true"] {
+          display: -webkit-box;
+          -webkit-line-clamp: 4;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+  

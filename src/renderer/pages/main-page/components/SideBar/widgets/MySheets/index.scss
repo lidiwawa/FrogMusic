@@ -1,0 +1,105 @@
+.side-bar-container--my-sheets {
+  & .divider {
+    display: none;
+  }
+
+  & .title {
+    height: 2.6rem;
+    display: flex;
+    align-items: center;
+    padding-left: 0.5rem;
+    padding-right: 0.2rem;
+    opacity: 0.82;
+    user-select: none;
+    color: var(--textColor);
+
+    $tag-size: 4px;
+    & .my-sheets {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      gap: 8px;
+      min-width: 0;
+
+      &::after {
+        content: "";
+        width: 0;
+        height: 0;
+        margin-left: 0.1rem;
+        border: $tag-size solid transparent;
+        border-left-color: currentColor;
+        transform-origin: left center;
+        transition: transform linear 100ms;
+      }
+    }
+
+    & .section-name {
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(234, 248, 255, 0.64);
+    }
+
+    & .section-count {
+      min-width: 22px;
+      height: 18px;
+      padding: 0 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 220, 255, 0.18);
+      color: var(--primaryColor);
+      font-size: 0.72rem;
+      background: rgba(0, 220, 255, 0.04);
+    }
+
+    &[data-headlessui-state="open"] {
+      & .my-sheets {
+        &::after {
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+    & .option-btn {
+      $size: 20px;
+      width: $size;
+      height: $size;
+      margin-left: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 220, 255, 0.12);
+      background: rgba(255, 255, 255, 0.02);
+
+      &:hover {
+        border-color: rgba(0, 220, 255, 0.28);
+      }
+
+      & svg {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+
+  & .my-sheets-sortable-list {
+    min-width: 0;
+  }
+
+  & .my-sheets-sortable-item {
+    position: relative;
+
+    & .components--drag-receiver {
+      z-index: 3;
+    }
+  }
+
+  & .side-bar--list-item-container[data-moving="true"] {
+    cursor: grab;
+    border-color: rgba(226, 60, 141, 0.62);
+    box-shadow:
+      0 0 0 1px rgba(244, 233, 255, 0.08) inset,
+      0 0 16px rgba(226, 60, 141, 0.22);
+  }
+}

@@ -1,0 +1,54 @@
+.music-download-base {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.music-download-base--with-text {
+  gap: 6px;
+  min-width: 72px;
+  height: 28px;
+  box-sizing: border-box;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+
+  & .music-download-label {
+    font-size: 12px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+}
+
+.music-download-base--with-downloaded-tip {
+  gap: 5px;
+
+  & .music-download-label {
+    max-width: 3.8rem;
+    padding-top: 1px;
+    font-size: 12px;
+    line-height: 1;
+    color: var(--infoColor, #0a95c8);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.music-downloaded {
+  color: var(--infoColor, #0a95c8);
+}
+
+.music-can-download {
+  opacity: 0.6;
+
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.music-download-blocked {
+  color: rgba(255, 255, 255, 0.45);
+}

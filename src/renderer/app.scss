@@ -1,0 +1,236 @@
+.app-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  color: var(--textColor);
+  background:
+    radial-gradient(circle at 8% 16%, rgba(226, 60, 141, 0.18), transparent 32%),
+    radial-gradient(circle at 82% 8%, rgba(124, 77, 255, 0.18), transparent 30%),
+    radial-gradient(circle at 88% 78%, rgba(226, 60, 141, 0.14), transparent 28%),
+    linear-gradient(180deg, #15122d 0%, #100d24 50%, #080713 100%);
+}
+
+.app-backdrop {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+  contain: paint;
+
+  & .app-backdrop-grid,
+  & .app-backdrop-scan {
+    position: absolute;
+    inset: -12%;
+  }
+
+  & .app-backdrop-grid {
+    opacity: 0.18;
+    background:
+      linear-gradient(180deg, rgba(226, 60, 141, 0.12), transparent 22%, transparent 72%, rgba(124, 77, 255, 0.1)),
+      repeating-linear-gradient(180deg, rgba(226, 60, 141, 0.055) 0 1px, transparent 1px 28px),
+      repeating-linear-gradient(90deg, rgba(124, 77, 255, 0.05) 0 1px, transparent 1px 56px);
+    transform: perspective(980px) rotateX(66deg) translateY(16vh) scale(1.45);
+    transform-origin: center bottom;
+    filter: drop-shadow(0 0 10px rgba(226, 60, 141, 0.08));
+    will-change: transform;
+  }
+
+  & .app-backdrop-scan {
+    inset: 0;
+    opacity: 0.11;
+    background:
+      repeating-linear-gradient(
+        180deg,
+        rgba(244, 233, 255, 0.024) 0,
+        rgba(244, 233, 255, 0.024) 1px,
+        transparent 1px,
+        transparent 4px
+    );
+    mix-blend-mode: screen;
+    animation: cyber-scan 12s linear infinite;
+    will-change: transform;
+  }
+}
+
+.app-shell {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.body-container {
+  width: 100%;
+  height: 0;
+  flex: 1;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(226, 60, 141, 0.1), transparent 28%),
+    linear-gradient(180deg, rgba(20, 17, 44, 0.92), rgba(10, 8, 24, 0.96));
+}
+
+.workspace-shell {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  border-top: 1px solid rgba(226, 60, 141, 0.2);
+  border-bottom: 1px solid rgba(124, 77, 255, 0.16);
+}
+
+.tab-list-container {
+  display: flex;
+  margin-top: 1rem;
+  flex-shrink: 0;
+  column-gap: 1rem;
+  row-gap: 0.6rem;
+  overflow-x: visible;
+  padding-bottom: 6px;
+  flex-wrap: wrap;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &:hover {
+    &::-webkit-scrollbar {
+      display: block;
+    }
+  }
+
+  & .tab-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 1.02rem;
+    min-height: 32px;
+    padding: 0 14px;
+    outline: none;
+    cursor: pointer;
+    opacity: 0.74;
+    white-space: nowrap;
+    user-select: none;
+    border: 1px solid rgba(226, 60, 141, 0.24);
+    border-radius: 4px;
+    background:
+      linear-gradient(90deg, rgba(226, 60, 141, 0.12), rgba(124, 77, 255, 0.06)),
+      linear-gradient(180deg, rgba(31, 27, 61, 0.96), rgba(16, 13, 38, 0.98));
+    transition: opacity 120ms linear, transform 120ms linear, box-shadow 120ms linear, border-color 120ms linear;
+
+    &:hover {
+      opacity: 0.94;
+      transform: translateY(-1px);
+      border-color: rgba(226, 60, 141, 0.56);
+      box-shadow: 0 0 18px rgba(226, 60, 141, 0.16);
+    }
+
+    &[data-headlessui-state="selected"] {
+      font-weight: 600;
+      opacity: 1;
+      color: var(--primaryColor);
+      background:
+        linear-gradient(90deg, rgba(226, 60, 141, 0.28), rgba(124, 77, 255, 0.2)),
+        linear-gradient(180deg, rgba(40, 29, 74, 0.98), rgba(22, 16, 52, 0.98));
+      border-color: rgba(226, 60, 141, 0.66);
+      box-shadow:
+        0 0 0 1px rgba(244, 233, 255, 0.08) inset,
+        0 0 20px rgba(226, 60, 141, 0.2);
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: auto 14px -2px 14px;
+        height: 2px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, transparent, var(--primaryColor), transparent);
+      }
+    }
+  }
+}
+
+.tab-panels-container {
+  flex: 1;
+  min-height: 0;
+
+  & .tab-panel-container {
+    height: 100%;
+    outline: none;
+  }
+}
+
+@keyframes cyber-grid {
+  from {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  to {
+    background-position: 0 72px, 0 72px, 72px 0;
+  }
+}
+
+@keyframes cyber-scan {
+  from {
+    transform: translateY(-4%);
+  }
+  to {
+    transform: translateY(4%);
+  }
+}
+
+/* 全局颜色变量 */
+:root:root {
+  --primaryColor: #e23c8d;
+  --backgroundColor: #100d24;
+  --dividerColor: rgba(226, 60, 141, 0.24);
+  --listEvenColor: rgba(255, 255, 255, 0.052);
+  --listHoverColor: rgba(226, 60, 141, 0.16);
+  --listActiveColor: rgba(124, 77, 255, 0.22);
+  --textColor: #f4e9ff;
+  --maskColor: rgba(8, 7, 19, 0.72);
+  --shadowColor: rgba(0, 0, 0, 0.52);
+  --placeholderColor: rgba(244, 233, 255, 0.14);
+  --successColor: #b18cff;
+  --dangerColor: #ff4f9a;
+  --infoColor: #a78bff;
+  --linkColor: #ff7ab8;
+  --neonPink: #e23c8d;
+  --neonViolet: #7c4dff;
+  --neonBlue: #8aa4ff;
+  --headerPlaceholderColor: rgba(24, 20, 50, 0.94);
+  --headerTextColor: #f4e9ff;
+  --appHeaderHeight: 58px;
+  --appMusicBarHeight: 72px;
+  --animate-duration: 300ms !important;
+  --scrollbarWidth: 8px;
+  font-size: 13px;
+  color: var(--textColor);
+}
+
+@media (max-width: 1280px) {
+  :root:root {
+    --appHeaderHeight: 54px;
+    --appMusicBarHeight: 68px;
+  }
+}
+
+@media (max-width: 960px) {
+  :root:root {
+    --appHeaderHeight: 52px;
+    --appMusicBarHeight: 64px;
+  }
+}
+
+a {
+  color: var(--linkColor);
+}

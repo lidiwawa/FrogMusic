@@ -1,0 +1,18 @@
+﻿appId: fun.upup.frogmusic
+productName: FrogMusic
+artifactName: FrogMusic-${version}-Setup-NSIS.${ext}
+directories:
+  output: out/make/nsis.windows/x64
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  icon: res/logo.ico
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: FrogMusic

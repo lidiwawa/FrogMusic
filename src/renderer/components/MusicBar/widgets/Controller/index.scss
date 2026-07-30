@@ -1,0 +1,209 @@
+.music-controller {
+  margin-left: 0;
+  flex: 1;
+  min-width: 120px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+
+  & .controller-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+    margin-right: 0;
+    color: rgba(244, 233, 255, 0.9);
+    border: 1px solid rgba(226, 60, 141, 0.24);
+    border-radius: 5px;
+    background:
+      linear-gradient(180deg, rgba(226, 60, 141, 0.16), rgba(33, 25, 68, 0.5)),
+      rgba(255, 255, 255, 0.04);
+    transition:
+      background 120ms ease,
+      border-color 120ms ease,
+      color 120ms ease;
+
+    &:hover {
+      color: #ffffff;
+      border-color: rgba(255, 106, 177, 0.58);
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255, 106, 177, 0.24),
+          rgba(124, 77, 255, 0.18)
+        ),
+        rgba(255, 255, 255, 0.06);
+      box-shadow: 0 0 16px rgba(226, 60, 141, 0.2);
+    }
+  }
+
+  & .primary-btn {
+    background:
+      radial-gradient(
+        circle at 50% 32%,
+        rgba(255, 255, 255, 0.36),
+        transparent 28%
+      ),
+      linear-gradient(180deg, #ff6ab1 0%, #e23c8d 52%, #7c4dff 100%);
+    border-color: rgba(255, 180, 220, 0.82);
+    color: #100d24;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.16) inset,
+      0 0 18px rgba(226, 60, 141, 0.36),
+      0 0 30px rgba(124, 77, 255, 0.2);
+
+    &:hover {
+      color: #100d24;
+      border-color: rgba(255, 255, 255, 0.86);
+      background:
+        radial-gradient(
+          circle at 50% 32%,
+          rgba(255, 255, 255, 0.46),
+          transparent 30%
+        ),
+        linear-gradient(180deg, #ff82bf 0%, #f04f9d 50%, #8f67ff 100%);
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.22) inset,
+        0 0 24px rgba(226, 60, 141, 0.44),
+        0 0 38px rgba(124, 77, 255, 0.26);
+    }
+  }
+
+  & .play-or-pause[data-playing="true"] {
+    background:
+      radial-gradient(
+        circle at 50% 32%,
+        rgba(255, 255, 255, 0.42),
+        transparent 28%
+      ),
+      linear-gradient(180deg, #fff4aa 0%, #ffdf6a 52%, #ffbf47 100%);
+    border-color: rgba(255, 244, 170, 0.82);
+    color: #1d1834;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.18) inset,
+      0 0 16px rgba(255, 223, 106, 0.22),
+      0 0 26px rgba(255, 191, 71, 0.14);
+
+    &:hover {
+      color: #160f2a;
+      border-color: rgba(255, 255, 255, 0.9);
+      background:
+        radial-gradient(
+          circle at 50% 32%,
+          rgba(255, 255, 255, 0.5),
+          transparent 30%
+        ),
+        linear-gradient(180deg, #fff7c2 0%, #ffe57d 50%, #ffc84f 100%);
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.24) inset,
+        0 0 20px rgba(255, 223, 106, 0.28),
+        0 0 32px rgba(255, 191, 71, 0.18);
+    }
+  }
+
+  & .play-or-pause {
+    width: 44px;
+    height: 44px;
+
+    & svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  & .skip {
+    width: 34px;
+    height: 34px;
+
+    & svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+}
+
+@media (max-width: 920px) {
+  .music-controller {
+    gap: 10px;
+
+    & .play-or-pause {
+      width: 40px;
+      height: 40px;
+
+      & svg {
+        width: 22px;
+        height: 22px;
+      }
+    }
+
+    & .skip {
+      width: 30px;
+      height: 30px;
+
+      & svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  .music-controller {
+    gap: 8px;
+
+    & .play-or-pause {
+      width: 36px;
+      height: 36px;
+
+      & svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    & .skip {
+      width: 28px;
+      height: 28px;
+
+      & svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 620px) {
+  .music-controller {
+    min-width: 106px;
+    gap: 6px;
+
+    & .play-or-pause {
+      width: 34px;
+      height: 34px;
+
+      & svg {
+        width: 19px;
+        height: 19px;
+      }
+    }
+
+    & .skip {
+      width: 26px;
+      height: 26px;
+
+      & svg {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+}
